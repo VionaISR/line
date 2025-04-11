@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: line
+    build: .
+    restart: always
+    ports:
+      - "8484:8383"
+    environment:
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_LINE_CLIENT_ID=${LINE_CLIENT_ID}
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_LINE_CLIENT_SECRET=${LINE_CLIENT_SECRET}
+    env_file:
+      - .env
